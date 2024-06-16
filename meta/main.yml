@@ -1,0 +1,14 @@
+---
+galaxy_info:
+  role_name: nginx
+  author: hemanth22
+  description: nginx provisioning role in the rhel
+  license: license (GPL-3.0-only)
+  min_ansible_version: "2.10"
+  platforms:
+    - name: EL
+      versions:
+        - all
+  galaxy_tags:
+    - nginx
+    - rockylinux

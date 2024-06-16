@@ -1,0 +1,16 @@
+---
+- name: Ensure EPEL repository is installed.
+  ansible.builtin.dnf:
+    name: "{{ epel_package_name }}"
+    state: present
+
+- name: Ensure nginx is installed.
+  ansible.builtin.dnf:
+    name: "{{ nginx_package_name }}"
+    state: present
+
+- name: Ensure nginx service is running as configured.
+  ansible.builtin.service:
+    name: nginx
+    state: "{{ nginx_service_state }}"
+    enabled: "{{ nginx_service_enabled }}"
