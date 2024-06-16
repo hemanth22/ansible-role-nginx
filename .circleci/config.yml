@@ -1,13 +1,14 @@
 version: 2.1
 
 executors:
-  python-executor:
+  default:
     docker:
       - image: cimg/python:3.9.19
     working_directory: ~/hemanth22.nginx
 
 jobs:
-  test:
+  build:
+    executor: default
     steps:
       - checkout
       - run:
@@ -33,4 +34,4 @@ workflows:
   version: 2.1
   test:
     jobs:
-      - test:
+      - build
