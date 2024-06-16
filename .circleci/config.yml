@@ -24,7 +24,7 @@ jobs:
           name: Install dependencies
           command: |
             . venv/bin/activate
-            pip install molecule docker ansible
+            pip3 install ansible molecule[docker] docker
       - run:
           name: Run Molecule tests
           command: |
