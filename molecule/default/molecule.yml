@@ -5,10 +5,10 @@ dependency:
   options:
     ignore-errors: true
 driver:
-  name: podman
+  name: docker
 platforms:
   - name: instance
-    image: ubi8/ubi-init
+    image: geerlingguy/docker-rockylinux8-ansible:latest
     pre_build_image: true
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro

@@ -1,0 +1,36 @@
+version: 2.1
+
+executors:
+  python-executor:
+    docker:
+      - image: cimg/python:3.9.19
+    working_directory: ~/hemanth22.nginx
+
+jobs:
+  test:
+    steps:
+      - checkout
+      - run:
+          name: Set up Python environment
+          command: |
+            python -V
+            python -m venv venv
+            . venv/bin/activate
+      - run:
+          name: Display list of files
+          command: ls -ltra
+      - run:
+          name: Install dependencies
+          command: |
+            . venv/bin/activate
+            pip install molecule docker ansible
+      - run:
+          name: Run Molecule tests
+          command: |
+            . venv/bin/activate
+            molecule test
+workflows:
+  version: 2.1
+  test:
+    jobs:
+      - test:
