@@ -1,22 +1,22 @@
-Role Name
+nginx
 =========
 
-A brief description of the role goes here.
+Provisioning nginx to rockylinux
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+No pre-requiste required.
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+None
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+None
 
 Example Playbook
 ----------------
@@ -25,14 +25,26 @@ Including an example of how to use your role (for instance, with variables passe
 
     - hosts: servers
       roles:
-         - { role: username.rolename, x: 42 }
+         - { role: hemanth22.nginx }
 
 License
 -------
 
-BSD
+GPL-3.0-only
 
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+This role was created in 2024 by Hemanth BITRA.
+Author Website: bitroid.in
+
+
+CircleCI Insight Status
+-----------------------
+
+[![CircleCI](https://dl.circleci.com/insights-snapshot/gh/hemanth22/ansible-role-nginx/main/test/badge.svg?window=30d)](https://app.circleci.com/insights/github/hemanth22/ansible-role-nginx/workflows/test/overview?branch=main&reporting-window=last-30-days&insights-snapshot=true)
+
+Circle CI Status
+----------------
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/hemanth22/ansible-role-nginx/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/hemanth22/ansible-role-nginx/tree/main)
+
