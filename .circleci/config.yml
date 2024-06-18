@@ -1,0 +1,46 @@
+---
+version: 2.1
+
+executors:
+  default:
+    docker:
+      - image: quay.io/hemanth22/rockylinux9:9
+
+jobs:
+  build:
+    executor: default
+    steps:
+      - checkout
+      - run:
+          name: Print Python Verson
+          command: |
+            dnf install python3-pip wget -y
+            python3 -V
+            python3 -m pip install requests
+      - run:
+          name: Provision Pip modules
+          command: |
+            python3 -m pip install --upgrade pip
+      - run:
+          name: Provision Ansible modules
+          command: |
+            python3 -m pip install ansible ansible-lint ansible-core molecule yamllint
+      - run:
+          name: Yamllint code execution
+          command: |
+            yamllint .
+      - run:
+          name: ansible-lint code execution
+          command: |
+            ansible-lint . | tee >> ansible_lint_error.txt
+      - run:
+          name: Check build status
+          command: |
+            wget -O create_github_issue.py https://gist.github.com/hemanth22/b1f8ad052685e106820e5d771b58034f/raw
+            python3 create_github_issue.py
+          when: on_fail
+
+workflows:
+  ansible_app:
+    jobs:
+      - build
